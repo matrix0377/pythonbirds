@@ -102,10 +102,10 @@ OESTE='Oeste'
 class Direcao:
     rotacao_a_direita_dct = {
         NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
-        }
+    }
     rotacao_a_esquerda_dct = {
         NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL
-        }
+    }
 
     def __init__(self):
         self.valor = NORTE
