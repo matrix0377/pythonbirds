@@ -38,7 +38,7 @@ class Ator():
         :param tempo: o tempo do jogo
         :return: posição x, y do ator
         """
-        return
+        return self.x, self.y
         
         
     def colidir(self, outro_ator, intervalo=1):
@@ -55,9 +55,9 @@ class Ator():
         """
         if self.status==ATIVO and outro_ator.status==ATIVO:
             delta_x = abs(self.x - outro_ator.x)
-            delta_x = abs(self.y - outro_ator.y)
+            delta_y = abs(self.y - outro_ator.y)
             if delta_x <= intervalo and delta_y <= intervalo:
-                self.status = outro_ator.status=DESTRUIDO
+                self.status = outro_ator.status = DESTRUIDO
 
 
 
@@ -68,7 +68,7 @@ class Obstaculo(Ator):
 
 class Porco(Ator):
     _caracter_ativo = '@'
-    _caracter_ativo = '+'
+    _caracter_destruido = '+'
 
 
 class DuploLancamentoExcecao(Exception):
@@ -147,7 +147,7 @@ class Passaro(Ator):
 
     def _calcular_posicao_vertical(self, delta_t):
         y_atual = self._y_inicial
-        angulo_radioanos = self._angulo_de_lancamento
+        angulo_radianos = self._angulo_de_lancamento
         y_atual += self.velocidade_escalar * delta_t * math.sin(angulo_radianos)
         y_atual -= (GRAVIDADE * (delta_t ** 2)) / 2
         self.y = y_atual

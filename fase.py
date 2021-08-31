@@ -84,7 +84,7 @@ class Fase():
         elif self._possui_passaros_ativos():
             return EM_ANDAMENTO
         else:
-            return DERROTA
+            return VITORIA
 
     def lancar(self, angulo, tempo):
         """
@@ -101,7 +101,6 @@ class Fase():
             if not passaro.foi_lancado():
                 passaro.lancar(angulo, tempo)
                 break
-
 
 
     def calcular_pontos(self, tempo):
