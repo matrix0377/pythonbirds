@@ -22,6 +22,7 @@ class AtorTestes(TestCase):
         self.assertEqual(ATIVO, ator.status)
         self.assertEqual('A', ator.caracter())
 
+
     def teste_valores_passados_por_parametro(self):
         'Testa se valores passados no inicializador são armazenados no objeto'
         ator = Ator(1, 2)
@@ -29,6 +30,7 @@ class AtorTestes(TestCase):
         self.assertEqual(2, ator.y)
         self.assertEqual(ATIVO, ator.status)
         self.assertEqual('A', ator.caracter())
+
 
     def teste_ator_posicao(self):
         'Teste que verifica que o ator comum não deve se mover independente do tempo do jogo'
@@ -62,9 +64,11 @@ class AtorTestes(TestCase):
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(1, 2))
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(1, 3))
 
+
     def teste_colisao_entre_atores_ativos_com_intervalo(self):
         # Com intervalo 2, diferente do padrão 1, essa colisão deveria acontecer
         self.assert_colisao_atores_ativos(Ator(2, 2), Ator(2, 4), 2)
+
 
     def teste_nao_colisao_entre_atores_distantes(self):
         'Teste de que não há colisão entre atores distantes'
@@ -76,6 +80,7 @@ class AtorTestes(TestCase):
         self.assert_nao_colisao(Ator(2, 2), Ator(0, 1))
         self.assert_nao_colisao(Ator(2, 2), Ator(0, 2))
         self.assert_nao_colisao(Ator(2, 2), Ator(0, 4))
+
 
     def teste_colisao_somente_um_ator_destruido(self):
         'Teste de que um ator destruído não pode colidir com nenhum outro, mesmo que estejam próximos'
@@ -101,6 +106,7 @@ class AtorTestes(TestCase):
         self.assert_nao_colisao(Ator(1, 2), ator)
         self.assert_nao_colisao(Ator(1, 3), ator)
 
+
     def test_caracter(self):
         'Teste de caracter para status ATIVO e DESTRUIDO'
         ator = Ator()
@@ -123,6 +129,7 @@ class AtorTestes(TestCase):
         # Conferindo status dos dois atores depois da colisão
         self.assertEqual(ator2.status, DESTRUIDO, 'Status deveria ser destruido depois da colisão')
         self.assertEqual(ator.status, DESTRUIDO, 'Status deveria ser destruido depois da colisão')
+
 
     def assert_nao_colisao(self, ator, ator2):
         """
@@ -220,6 +227,7 @@ class PassaroVermelhoTests(PassaroBaseTests):
         self.assertTrue(passaro_vermelho.foi_lancado(),
                         'Se o método lançar foi executado, deve retornar verdadeiro')
 
+
     def teste_colisao_com_chao(self):
         """
         Testando que o passáro colide quando sua posição y é menor ou igual a 0
@@ -254,8 +262,10 @@ class PassaroAmareloTests(PassaroBaseTests):
         passaro_amarelo.colidir(outro_ator_na_mesma_posicao)
         self.assertEqual('a', passaro_amarelo.caracter())
 
+
     def teste_velocidade_escalar(self):
         self.assertEqual(30, PassaroAmarelo.velocidade_escalar)
+
 
     def teste_lacamento_vertical(self):
         """
@@ -264,8 +274,6 @@ class PassaroAmareloTests(PassaroBaseTests):
         """
         passaro_amarelo = PassaroAmarelo(1, 1)
         passaro_amarelo.lancar(90, 2)  # passaro lancado a 90 graus no tempo 2 segundos
-
-
 
         # subindo
 
@@ -750,6 +758,7 @@ class PassaroAmareloTests(PassaroBaseTests):
         # t = 2 + (delta_t / 100)
         # x, y = passaro_amarelo.calcular_posicao(t)
         # print('        self.assert_passaro_posicao(%s, %s, ATIVO, passaro_amarelo, %s)' % (x, y, t))
+
 
     def assert_posicao_vertical(self, y, tempo, passaro):
         """

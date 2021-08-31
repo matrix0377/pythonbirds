@@ -89,6 +89,7 @@ class FaseTestes(TestCase):
         fase.adicionar_porco(porco1, porco2)
         self.assertListEqual([porco, porco1, porco2], fase._porcos)
 
+
     def teste_adicionar_passaro(self):
         fase = Fase()
         self.assertListEqual([], fase._passaros)
@@ -100,9 +101,11 @@ class FaseTestes(TestCase):
         fase.adicionar_passaro(passaro1, passaro2)
         self.assertListEqual([passaro, passaro1, passaro2], fase._passaros)
 
+
     def teste_acabou_sem_porcos(self):
         fase = Fase()
         self.assertEqual(VITORIA, fase.status())
+
 
     def teste_acabou_com_porcos_e_passaros(self):
         fase = Fase()
@@ -130,6 +133,7 @@ class FaseTestes(TestCase):
         self.assertEqual(EM_ANDAMENTO, fase.status(),
                          'Com Porco ativo e com pássaro para lançar, o jogo '
                          'não deveria acabar')
+
 
     def teste_status(self):
         fase = Fase()
@@ -179,6 +183,7 @@ class FaseTestes(TestCase):
         self.assertTrue(passaros[0].foi_lancado())
         self.assertTrue(passaros[1].foi_lancado())
 
+
     def teste_intervalo_de_colisao_padrao(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos
@@ -196,6 +201,7 @@ class FaseTestes(TestCase):
         self.assertTrue(passaro.colidir_com_chao_executado)
         self.assertEqual(1, passaro.intervalo_colisao)
         self.assertEqual(1, porco.intervalo_colisao)
+
 
     def teste_intervalo_de_colisao_nao_padrao(self):
         '''
